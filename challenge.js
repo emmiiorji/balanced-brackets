@@ -32,25 +32,20 @@ function balancedBrackets(string) {
     }
   }
 
-
   if(bracketsStack.peek() !== null) {
-    return false
+    return false;
   }
-  return true
+  return true;
 }
 
 function cannotBalance(bracket1, bracket2) {
-  if((bracket1 === null || bracket2 === null) && !(bracket1 === null && bracket2 === null)) {
-    return false
-  }
-
   if(Object.keys(pairs).includes(bracket1) && Object.values(pairs).includes(bracket2)) {
     // When open is followed by a close that's not corresponding, balance cannot happen
     // E.g '[' following ')', cannot balance
     if(isPair(bracket1, bracket2)) {
       return false;
     }
-    return true
+    return true;
   }
   return false;
 }
@@ -59,7 +54,7 @@ function isPair(bracket1, bracket2) {
   // bracket1 and bracket2 must be an opening and closing bracket respectively
   for(let i = 0 ; i < Object.keys(pairs).length ; i += 1) {
     if(pairs[bracket1] === bracket2) {
-      return true
+      return true;
     }
   }
   return false;
